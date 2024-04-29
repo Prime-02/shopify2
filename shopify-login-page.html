@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7a4ad501ef.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url("shopify2.jpg");
+    /* Specify background properties */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+}
+
+/*------------ Login container ------------*/
+
+.box-area{
+    width: 930px;
+}
+
+/*------------ Right box ------------*/
+
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+
+/*------------ Custom Placeholder ------------*/
+
+::placeholder{
+    font-size: 16px;
+}
+
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+
+
+/*------------ For small screens------------*/
+
+@media only screen and (max-width: 768px){
+
+     .box-area{
+        margin: 0 10px;
+     }
+     .left-box{
+        height: 120px;
+        padding-bottom: 15px;
+     }
+     .right-box{
+        padding: 20px;
+     }
+     .img{
+        display: none;
+     }
+     .your-div-class {
+        color: black;
+    background-image: url('shopify5.jpg');
+    background-size: cover;
+    /* Additional styling if needed */
+  }
+  .text{
+    color: black;
+  }
+}
+#box, .nav{
+    background-color: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
+            backdrop-filter: blur(2px); /* Adjust the blur radius as needed */
+}
+.link1{
+    border: gray 0px solid;
+    background-color: whitesmoke;
+}
+
+    </style>
+    <title>Shopify Login Page</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md nav">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h1>Shopify  <i class="fa-solid fa-cart-shopping"></i></h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">SIgn Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!----------------------- Main Container -------------------------->
+     <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <!----------------------- Login Container -------------------------->
+
+       <div class="row border rounded-5 p-3 shadow box-area" id="box">
+
+    <!--------------------------- Left Box ----------------------------->
+
+       <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box your-div-class bg-primary">
+
+           <div class="featured-image mb-3">
+
+            <img src="shopify4.jpg" class="img rounded-4 img-fluid" style="width: 450px;">
+
+           </div>
+
+           <p class="text-white text fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">
+            Shop in Style
+        </p>
+
+           <small class="text-white text text-wrap text-center" style="width: 17rem;font-family: 'Courier New', Courier, monospace;">
+            Organise your shopping list for an excellent shopping experience
+        </small>
+       </div> 
+
+    <!-------------------- ------ Right Box ---------------------------->
+        
+       <div class="col-md-6 right-box">
+
+          <div class="row align-items-center">
+
+                <div class="header-text mb-4">
+
+                     <h2 class="heading2">
+                        Hello
+                     </h2>
+
+                     <p>
+                        We are happy to have you back.
+                    </p>
+                    <p>
+                        Please enter your login details to access your shopping list
+                    </p>
+                </div>
+                <form action="">
+                <div class="input-group mb-3">
+
+                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+
+                </div>
+                <div class="input-group mb-1">
+
+                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+                </div>
+                <div class="input-group mb-5 d-flex justify-content-between">
+
+                    <div class="form-check">
+
+                        <input type="checkbox" class="form-check-input" id="formCheck">
+
+                        <label for="formCheck" class="form-check-label text-secondary">
+                            <small>
+                                Remember Me
+                            </small>
+                        </label>
+                    </div>
+                    <div class="forgot">
+
+                        <small>
+                            <a href="#" class="link1 px-2 rounded-4">Forgot Password?</a>
+                        </small>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+
+                    <button class="btn btn-lg btn-primary w-100 fs-6">Login</button>
+                    </form>
+                </div>
+                <div class="input-group mb-3">
+
+                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="" style="width:20px" class="me-2">
+                        <small> Don't have account? <a href="#">Sign Up</a></small>
+                    </button>
+                </div>
+          </div>
+       </div> 
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</body>
+</html>

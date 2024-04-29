@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<style>
+    .password-container {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rough sketch</title>
+</head>
+<body>
+  <form id="signup">
+    <input type="text" placeholder="Name" class="name">
+    <input type="email" placeholder="Email" class="email" required title="Please ensure the email has not been used to create an account previously with us">
+    <div class="password-container">
+    <input type="password" placeholder="Password"  class="password psd" required>
+    <span class="toggle-password" onclick="togglePasswordVisibility()">🙉</span>
+    </div>
+    <input type="submit" value="Sign Up" class="button">
+  </form>
+  <input type="submit" value="clear login Infos" class="clear">
+    <script>
+         let Form = document.querySelector('#signup');
+         let Name = document.querySelector('.name');
+         let Email = document.querySelector('.email');
+         let Psd = document.querySelector('.psd');
+         let Button = document.querySelector('.button');
+         let clearButton = document.querySelector('.clear');
+         let savedInfo = [];
+         Button.addEventListener("click", () => {
+            event.preventDefault();
+            if(validateInfo()){
+                 signUp();
+            Form.reset();
+            }
+           
+         })
+         clearButton.addEventListener("click", () => {
+           localStorage.clear();
+           alert('You cleared all login info')
+           
+         })
+
+         function validateInfo() {
+            if(!Form.checkValidity()){
+                alert("Your information does not meet up with the requireements.");
+                return false;
+            }
+            else{
+                return true;
+            }
+         }
+
+
+         function togglePasswordVisibility() {
+            let passwordInput = document.getElementsByClassName('password')[0];
+            let toggleButton = document.querySelector('.toggle-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = '🙉';
+            }
+        }
+
+         function signUp() {
+            // let emailExists = savedInfo.some(user => user.email === Email.value && user.psd !== Psd.value);
+            // let nameExists = savedInfo.some(user => user.name === Name.value && user.psd !== Psd.value);
+            // if (emailExists ) {
+            //     alert('Email has already been used with a different password.');
+            //     return;
+            // } else if (nameExists) {
+            //     alert('User Name has already been used')
+            //     return;
+            // }
+            let emailExists = savedInfo.some(user => user.email === Email.value);
+            let nameExists = savedInfo.some(user => user.name === Name.value);
+            if (emailExists || nameExists) {
+                alert('Email or username has already been used.');
+                return;
+            }
+            let userInfo = {
+                name: Name.value,
+                email: Email.value,
+                psd: Psd.value 
+            };
+            savedInfo.push(userInfo); // Push user info to the array
+            localStorage.setItem('storedInfo', JSON.stringify(savedInfo)); // Store updated array in local storage
+            console.log(savedInfo);
+         }
+
+         // Retrieving stored info from local storage
+         let returnedInfo = JSON.parse(localStorage.getItem('storedInfo'));
+         console.log(returnedInfo);
+    </script>
+</body>
+</html>
+
